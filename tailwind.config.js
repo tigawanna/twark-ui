@@ -1,10 +1,11 @@
 /** @type {import('tailwindcss').Config} */
+const { parkwindPlugin } = require("@park-ui/tailwind-plugin");
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {},
   },
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"), require("tailwindcss-animate"), parkwindPlugin],
   daisyui: {
     themes: [
       "light",
