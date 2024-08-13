@@ -36,8 +36,8 @@ export function DaisyuiThemesSelect({}: DaisyuiThemesSelectProps) {
     "sunset",
   ];
   return (
-    <select data-choose-theme className="select select-primary">
-      <option value="">Default</option>
+    <select data-choose-theme className="select select-primary select-sm">
+      <option value="text-center">Default</option>
       {items.map((item) => (
         <option value={item}>{item}</option>
       ))}
