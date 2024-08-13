@@ -24,25 +24,27 @@ const generateForegroundColorFrom = (input: Color | string, percentage = 0.8) =>
   return formatHex(`oklch(${colorObjToString(result)})`) as Color | string;
 };
 
-const generateDarkenColorFrom = (input: Color | string, percentage = 0.07):Color | string => {
+const generateDarkenColorFrom = (input: Color | string, percentage = 0.07): Color | string => {
   const result = interpolate([input, "black"], "oklch")(percentage);
   return formatHex(`oklch(${colorObjToString(result)})`) as Color | string;
 };
 
-function changeColorValuesToObject(input: string): { l: number, c: number, h: number, a: number } {
+function changeColorValuesToObject(input: string): { l: number; c: number; h: number; a: number } {
   const match = input.match(/(\d+(?:\.\d+)?)%?/g);
   const [lStr, cStr, hStr] = match ? match.map(Number.parseFloat) : [0, 0, 0];
   return { l: lStr || 0, c: cStr || 0, h: hStr || 0, a: 1 };
 }
 
-const getColorValueFromTheme = (variable:string) => {
-    let colorValues = getComputedStyle(document.documentElement).getPropertyValue(variable);
+const getColorValueFromTheme = (variable: string) => {
+  if (browser) {
+    const colorValues = getComputedStyle(document.documentElement).getPropertyValue(variable);
     return formatHex(
       `oklch(${changeColorValuesToObject(colorValues).l} ${
         changeColorValuesToObject(colorValues).c
       } ${changeColorValuesToObject(colorValues).h})`
     );
-  
+  }
+
   return null;
 };
 
@@ -56,7 +58,7 @@ const requiredColorNames = [
   "success",
   "warning",
   "error",
-] as const
+] as const;
 const onlyRequiredColorNames = true;
 
 const colors = [
@@ -160,17 +162,16 @@ const colors = [
     variable: "--erc",
     value: getColorValueFromTheme("--erc"),
   },
-] as const
+] as const;
 
-function darken(name: string, variable: string, source: string, percentage: number = 0.2){
+function darken(name: string, variable: string, source: string, percentage: number = 0.2) {
   const sourceColor = colors.find((item) => item.name === source);
-  return generateDarkenColorFrom(sourceColor?.value??"black", percentage);
+  return generateDarkenColorFrom(sourceColor?.value ?? "black", percentage);
 }
-function contrastMaker(name: string, variable: string, source: string, percentage: number = 0.8){
+function contrastMaker(name: string, variable: string, source: string, percentage: number = 0.8) {
   const sourceColor = colors.find((item) => item.name === source);
-  return generateForegroundColorFrom(sourceColor?.value??"black", percentage);
+  return generateForegroundColorFrom(sourceColor?.value ?? "black", percentage);
 }
-
 
 function generateOptionalColors(): void {
   // @ts-expect-error
@@ -199,3 +200,69 @@ function generateOptionalColors(): void {
 }
 
 
+function handlePastedText(event, color) {
+  const text = event.clipboardData.getData("Text");
+  color.value = text;
+  event.preventDefault();
+}
+
+function resetColors() {
+  if (browser && localStorage.getItem("theme-generator-colors")) {
+    localStorage.removeItem("theme-generator-colors");
+    colors = JSON.parse(localStorage?.getItem("theme-generator-default-colors")??"[]");
+    generateOptionalColors();
+    generateColors();
+  }
+}
+
+function randomBetween(min: number, max: number) {
+  const result = Math.random() * (max - min) + min;
+  return Math.round(result * 100) / 100;
+}
+
+function randomize() {
+  localStorage.removeItem("theme-generator-colors");
+  // ;["primary", "secondary", "accent"].forEach((element) => {
+// @ts-expect-error
+  colors[0].value = formatHex(
+    `oklch(${randomBetween(0.5, 0.7)} ${randomBetween(0.4, 0.5)} ${randomBetween(180, 360)})`
+  ); //primary
+  // @ts-expect-error
+  colors[2].value = formatHex(
+    `oklch(${randomBetween(0.4, 0.8)} ${randomBetween(0.4, 0.5)} ${randomBetween(70, 270)})`
+  ); //secondary
+  // @ts-expect-error
+  colors[4].value = formatHex(
+    `oklch(${randomBetween(0.4, 0.8)} ${randomBetween(0.4, 0.5)} ${randomBetween(70, 270)})`
+  ); //accent
+  // @ts-expect-error
+  colors[6].value = formatHex(
+    `oklch(${randomBetween(0.1, 0.3)} ${randomBetween(0, 0.05)} ${randomBetween(0, 360)})`
+  ); //neutral
+  // @ts-expect-error
+  colors[8].value = formatHex(
+    `oklch(${
+      [randomBetween(0.99, 1), randomBetween(0.25, 0.3)][Math.round(Math.random())]
+    } ${randomBetween(0, 0.05)} ${randomBetween(0, 360)})`
+  ); //base-100
+  // @ts-expect-error
+  colors[12].value = formatHex(
+    `oklch(${randomBetween(0.5, 0.9)} ${randomBetween(0.18, 0.293)} ${randomBetween(200, 260)})`
+  ); //info
+  // @ts-expect-error
+  colors[14].value = formatHex(
+    `oklch(${randomBetween(0.5, 0.9)} ${randomBetween(0.18, 0.293)} ${randomBetween(120, 180)})`
+  ); //success
+  // @ts-expect-error
+  colors[16].value = formatHex(
+    `oklch(${randomBetween(0.5, 0.9)} ${randomBetween(0.18, 0.293)} ${randomBetween(50, 100)})`
+  ); //warning
+  // @ts-expect-error
+  colors[18].value = formatHex(
+    `oklch(${randomBetween(0.5, 0.9)} ${randomBetween(0.18, 0.293)} ${randomBetween(12, 24)})`
+  );
+  //error
+  // })
+  generateOptionalColors();
+//   generateColors();
+}
