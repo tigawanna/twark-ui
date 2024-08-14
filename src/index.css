@@ -3,3 +3,115 @@
 @tailwind utilities;
 
 
+
+
+
+@layer base {
+  :root {
+    --popover: theme(colors.base-200);
+    --popover-foreground: theme(colors.base-content);
+
+    --background: theme(colors.base-100);
+    --foreground: theme(colors.base-content);
+
+    --backeground-darker: theme(colors.base-300);
+    --muted: theme(colors.base-200);
+
+    --muted-foreground: hsl(hue-rotate(theme(colors.base-content)), 100%, 30%);
+
+    --border: theme(colors.base-300);
+    --input: theme(colors.base-300);
+
+    --card: theme(colors.base-300);
+    --card-foreground: theme(colors.base-content);
+
+    --destructive: theme(colors.error);
+    --destructive-foreground: theme(colors.error-content);
+
+    --ring: theme(colors.accent);
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* 
+        use your editor's find and replace to edit these values
+    primary-foreground -> primary-content
+    secondary-foreground -> secondary-content
+    accent-foreground ->accent-content 
+    
+    */
+
+    --popover: theme(colors.base-200);
+    --popover-foreground: theme(colors.base-content);
+
+    --background: theme(colors.base-100);
+    --foreground: theme(colors.base-content);
+
+    --backeground-darker: theme(colors.base-300);
+    --muted: theme(colors.base-100);
+
+    --muted-foreground: hsl(hue-rotate(theme(colors.base-content)), 100%, 30%);
+
+    --border: theme(colors.base-300);
+    --input: theme(colors.base-300);
+
+    --card: theme(colors.base-300);
+    --card-foreground: theme(colors.base-content);
+
+    --destructive: theme(colors.error);
+    --destructive-foreground: theme(colors.error-content);
+
+    --ring: theme(colors.accent);
+
+    --radius: 0.5rem;
+  }
+  @media (prefers-color-scheme: dark) {
+  
+  .dark {
+    /* 
+        use your editor's find and replace to edit these values
+    primary-foreground -> primary-content
+    secondary-foreground -> secondary-content
+    accent-foreground ->accent-content 
+    
+    */
+
+    --popover: theme(colors.base-200);
+    --popover-foreground: theme(colors.base-content);
+
+    --background: theme(colors.base-100);
+    --foreground: theme(colors.base-content);
+
+    --backeground-darker: theme(colors.base-300);
+    --muted: theme(colors.base-100);
+
+    --muted-foreground: hsl(hue-rotate(theme(colors.base-content)), 100%, 30%);
+
+    --border: theme(colors.base-300);
+    --input: theme(colors.base-300);
+
+    --card: theme(colors.base-300);
+    --card-foreground: theme(colors.base-content);
+
+    --destructive: theme(colors.error);
+    --destructive-foreground: theme(colors.error-content);
+
+    --ring: theme(colors.accent);
+
+    --radius: 0.5rem;
+  }
+}
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+}

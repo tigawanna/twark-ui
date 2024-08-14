@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "@park-ui/tailwind-plugin": "^0.20.1",
+        "daisify-shadcn": "^0.0.1",
     "@types/culori": "^2.1.1",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",

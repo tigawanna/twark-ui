@@ -5,7 +5,13 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [require("daisyui"), require("tailwindcss-animate"), parkwindPlugin],
+  plugins: [
+    require("daisyui"),
+    require("tailwindcss-animate"),
+    require("daisify-shadcn")
+    ,
+    parkwindPlugin,
+  ],
   daisyui: {
     themes: [
       "light",

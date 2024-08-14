@@ -32,7 +32,6 @@ export const getColorValueFromTheme = (variable: string) => {
 };
 export const getColorValueFromThemeVariable = (variable: string) => {
     const colorValues = getComputedStyle(document.documentElement).getPropertyValue(variable);
-    console.log({colorValues})
     return formatHex(
       `oklch(${changeColorValuesToObject(colorValues).l} ${
         changeColorValuesToObject(colorValues).c
