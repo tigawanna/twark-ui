@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { themeChange } from "theme-change";
 import { MainNavBar } from "./components/navbar/MainNavBar";
-import { CssvariablesView } from "./components/daisyui/CssVariablesView";
+import { CssvariablesView } from "./components/daisyui/DaisyUIThemes";
 import { RadixColorPicker } from "./components/radix/RadixColorPicker";
 
 function App() {

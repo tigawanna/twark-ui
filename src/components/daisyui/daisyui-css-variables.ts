@@ -213,75 +213,80 @@ export function getDaisyUiColors(dark = false) {
 
 export const daisyUiColors = getDaisyUiColors();
 
-export const getTailwindBg = (color: (typeof daisyUiColors)[number]["name"]) => {
+export const getTailwindBg = (
+  color: (typeof daisyUiColors)[number]["name"]
+): {
+  bg: string;
+  content: string;
+} => {
   switch (color) {
     // primary
     case "primary":
-      return "bg-primary";
+      return { bg: "bg-primary", content: "text-primary-content" };
     case "primary-content":
-      return "bg-primary-content";
+      return { bg: "bg-primary-content", content: "text-primary" };
     case "primary-focus":
-      return "bg-primary-focus";
-    // secondary  
+      return { bg: "bg-primary-focus", content: "text-primary-content" };
+    // secondary
     case "secondary":
-      return "bg-secondary";
+      return { bg: "bg-secondary", content: "text-secondary-content" };
     case "secondary-content":
-      return "bg-secondary-content";
+      return { bg: "bg-secondary-content", content: "text-secondary" };
     case "secondary-focus":
-      return "bg-secondary-focus";
+      return { bg: "bg-secondary-focus", content: "text-secondary-content" };
     // accent
     case "accent":
-      return "bg-accent";
+      return { bg: "bg-accent", content: "text-accent-content" };
     case "accent-content":
-      return "bg-accent-content";
+      return { bg: "bg-accent-content", content: "text-accent" };
     case "accent-focus":
-      return "bg-accent-focus";
+      return { bg: "bg-accent-focus", content: "text-accent-content" };
     // neutral
     case "neutral":
-      return "bg-neutral";
+      return { bg: "bg-neutral", content: "text-neutral-content" };
     case "neutral-content":
-      return "bg-neutral-content";
+      return { bg: "bg-neutral-content", content: "text-neutral" };
     case "neutral-focus":
-      return "bg-neutral-focus";
+      return { bg: "bg-neutral-focus", content: "text-neutral-content" };
     // base
     case "base-100":
-      return "bg-base-100";
+      return { bg: "bg-base-100", content: "text-base-content" };
     case "base-200":
-      return "bg-base-200";
+      return { bg: "bg-base-200", content: "text-base-content" };
     case "base-300":
-      return "bg-base-300";
+      return { bg: "bg-base-300", content: "text-base-content" };
     case "base-content":
-      return "bg-base-content";
+      return { bg: "bg-base-content", content: "text-base-100" };
     // info
     case "info":
-      return "bg-info";
+      return { bg: "bg-info", content: "text-info-content" };
     case "info-content":
-      return "bg-info-content";
+      return { bg: "bg-info-content", content: "text-info" };
     case "info-focus":
-      return "bg-info-focus";
+      return { bg: "bg-info-focus", content: "text-info-content" };
     // success
     case "success":
-      return "bg-success";
+      return { bg: "bg-success", content: "text-success-content" };
     case "success-content":
-      return "bg-success-content";
+      return { bg: "bg-success-content", content: "text-success" };
     case "success-focus":
-      return "bg-success-focus";
+      return { bg: "bg-success-focus", content: "text-success-content" };
     // warning
     case "warning":
-      return "bg-warning";
+      return { bg: "bg-warning", content: "text-warning-content" };
     case "warning-content":
-      return "bg-warning-content";
+      return { bg: "bg-warning-content", content: "text-warning" };
     case "warning-focus":
-      return "bg-warning-focus";
+      return { bg: "bg-warning-focus", content: "text-warning-content" };
     // error
     case "error":
-      return "bg-error";
+      return { bg: "bg-error", content: "text-error-content" };
     case "error-content":
-      return "bg-error-content";
+      return { bg: "bg-error-content", content: "text-error" };
     case "error-focus":
-      return "bg-error-focus";
+      return { bg: "bg-error-focus", content: "text-error-content" };
     default:
-      return "";
+      return { bg: "bg-base-100", content: "text-base-content" };
   }
 };
 
