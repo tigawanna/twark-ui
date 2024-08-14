@@ -29,13 +29,10 @@ export function CssvariablesView() {
     const [key] = curr.name.split("-");
 
     if (curr.name.includes(key)) {
-      // acc[key as GroupItemKey] = curr
-      // acc[key as GroupItemKey] = curr
       acc[key as GroupItemKey] = acc[key as GroupItemKey]
         ? [...acc[key as GroupItemKey], curr]
         : [curr];
     }
-    console.log("========== acc =============== ", acc);
     return acc;
   }, {} as GroupedThems);
 
@@ -44,22 +41,6 @@ export function CssvariablesView() {
   return (
     <div className="w-full h-full flex flex-col items-center justify-center">
       <h1 className="text-xl font-bold ">Daisy UI theme</h1>
-      {/* <ul className="w-full h-full flex flex-wrap items-center justify-center p-5">
-        {colors.map((color) => {
-          const value = color.value;
-          const twStylsx = getTailwindBg(color.name);
-          return (
-            <li
-              key={color.variable}
-              className="w-full sm:w-1/3 md:w-1/4 lg:w-1/5 p-2 h-16 flex flex-col justify-center rounded-lg">
-              {color.name}
-              <div key={value} className={twMerge(twStylsx, "w-full h-full rounded-lg")}>
-                {value}
-              </div>
-            </li>
-          );
-        })}
-      </ul> */}
       <ul className="w-full h-full flex flex-wrap items-center justify-center p-5 gap-5 divide-y">
         {groupedThemes.map(([key, value]) => {
           return (
