@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 import type {} from "@redux-devtools/extension"; // required for devtools typing
+import { type daisyUiColors, getDaisyUiColors } from "@/components/daisyui/daisyui-css-variables";
 
 
 // interface BearState {
@@ -22,24 +23,27 @@ import type {} from "@redux-devtools/extension"; // required for devtools typing
 //     )
 //   )
 // );
-interface Theme{
-  
-}
-interface ThemeState {
-  themes: number;
-  setTheme: (theme: number) => void;
 
+
+type DaisyUIThemeVariables = typeof daisyUiColors;
+interface DaisyUITheme {
+  lightTheme: DaisyUIThemeVariables;
+  setLightTheme: (theme: DaisyUIThemeVariables) => void;
+  darkTheme: DaisyUIThemeVariables;
+  setDarkTheme: (theme: DaisyUIThemeVariables) => void;
 }
 
-const useThemeStore = create<ThemeState>()(
+const useThemeStore = create<DaisyUITheme>()(
   devtools(
     persist(
       (set) => ({
-        themes: 0,
-        increase: (by) => set((state) => ({ bears: state.bears + by })),
+        lightTheme: getDaisyUiColors(false),
+        setLightTheme: (theme) => set(() => ({ lightTheme: theme })),
+        darkTheme: getDaisyUiColors(true),
+        setDarkTheme: (theme) => set(() => ({ darkTheme: theme })),
       }),
       {
-        name: "bear-storage",
+        name: "thme-storage",
       }
     )
   )

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getDaisyUiColors, getTailwindBg } from "./css-variables";
+import { getDaisyUiColors, getTailwindBg } from "./daisyui-css-variables";
 import { twMerge } from "tailwind-merge";
 
 interface CssvariablesViewProps {}
