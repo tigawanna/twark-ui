@@ -39,7 +39,7 @@ export function DaisyuiThemesSelect({}: DaisyuiThemesSelectProps) {
     <select data-choose-theme className="select select-primary select-sm">
       <option value="text-center">Default</option>
       {items.map((item) => (
-        <option value={item}>{item}</option>
+        <option value={item} key={item}>{item}</option>
       ))}
     </select>
   );
