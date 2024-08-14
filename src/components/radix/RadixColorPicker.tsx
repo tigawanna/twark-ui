@@ -22,7 +22,7 @@ export function RadixColorPicker({}: RadixColorPickerProps) {
                   return (
                     <li
                       style={{ backgroundColor: v2 }}
-                      className="size-14 rounded-lg"
+                      className="size-10 rounded-lg"
                       key={`${k}-${k2}`}></li>
                   );
                 })}

@@ -1,8 +1,8 @@
 import { Pagination as ArkPagination, type PaginationRootProps } from '@ark-ui/react/pagination'
 import { forwardRef } from 'react'
 import { type VariantProps, tv } from 'tailwind-variants'
-import { Button } from '~/components/ui/button'
-import { IconButton } from '~/components/ui/icon-button'
+import { Button } from '~/components/twark/ui/button'
+import { IconButton } from '~/components/twark/ui/icon-button'
 
 export interface PaginationProps extends PaginationRootProps, PaginationVariantProps {}
 
@@ -22,7 +22,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>((props, ref) 
           pagination.pages.map((page, index) =>
             page.type === 'page' ? (
               <ArkPagination.Item className={item()} key={index} {...page} asChild>
-                <Button variant="outline">{page.value}</Button>
+                <Button >{page.value}</Button>
               </ArkPagination.Item>
             ) : (
               <ArkPagination.Ellipsis className={ellipsis()} key={index} index={index}>
