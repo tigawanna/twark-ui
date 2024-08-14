@@ -1,20 +1,13 @@
 import { useEffect, useState } from "react";
-import {
-  daisyUiColors,
-  getColorValueFromThemeVariable,
-  getDaisyUiColors,
-  getTailwindBg,
-} from "./css-variables";
+import { getDaisyUiColors, getTailwindBg } from "./css-variables";
 import { twMerge } from "tailwind-merge";
 
 interface CssvariablesViewProps {}
 
 export function CssvariablesView({}: CssvariablesViewProps) {
-  const [dataTheem, setDataTheem] = useState<string | null>(null);
   const [colors, setColors] = useState(getDaisyUiColors());
   useEffect(() => {
     const mutationObserver = new MutationObserver(() => {
-      setDataTheem(document.documentElement.getAttribute("data-theme"));
       setColors(getDaisyUiColors());
     });
     mutationObserver.observe(document.documentElement, {
