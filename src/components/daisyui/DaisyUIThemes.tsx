@@ -47,15 +47,15 @@ export function DaisyUIThemes() {
             <li
               key={key}
               className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2  flex flex-wrap justify-center  gap-2">
-              <span className="text-xs">{key}</span>
-              <ul className="w-full flex flex-col justify-center rounded-lg">
+              <span className="text-3xl font-bold">{key}</span>
+              <ul className="w-full flex flex-col justify-center rounded-lg gap-2">
                 {value.map((theme) => {
                   const value = theme.value;
                   const { bg, content } = getTailwindBg(theme.name);
                   return (
                     <li
                       key={theme.variable}
-                      className="w-full h-24 flex flex-col justify-center rounded-lg">
+                      className="w-full h-24 flex flex-col justify-center rounded-lg hover:scale-110">
                       <div
                         key={value}
                         className={twMerge(

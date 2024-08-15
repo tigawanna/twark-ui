@@ -68,12 +68,7 @@ export function getDaisyUiColors(dark = false) {
     {
       name: "primary-content",
       variable: "--pc",
-      value: getColorValueFromTheme("--pc", dark),
-    },
-    {
-      name: "primary-focus",
-      variable: "--pf",
-      value: getColorValueFromTheme("--p", dark, true),
+      value: getColorValueFromTheme("--pc",dark),
     },
     // secondary
     {
@@ -86,11 +81,6 @@ export function getDaisyUiColors(dark = false) {
       variable: "--sc",
       value: getColorValueFromTheme("--sc", dark),
     },
-    {
-      name: "secondary-focus",
-      variable: "--sf",
-      value: getColorValueFromTheme("--s", dark, true),
-    },
     // accent
     {
       name: "accent",
@@ -102,11 +92,6 @@ export function getDaisyUiColors(dark = false) {
       variable: "--ac",
       value: getColorValueFromTheme("--ac", dark),
     },
-    {
-      name: "accent-focus",
-      variable: "--af",
-      value: getColorValueFromTheme("--a", dark, true),
-    },
     // neutral
     {
       name: "neutral",
@@ -117,11 +102,6 @@ export function getDaisyUiColors(dark = false) {
       name: "neutral-content",
       variable: "--nc",
       value: getColorValueFromTheme("--nc", dark),
-    },
-    {
-      name: "neutral-focus",
-      variable: "--nf",
-      value: getColorValueFromTheme("--n", dark,true),
     },
     // base
     {
@@ -155,11 +135,7 @@ export function getDaisyUiColors(dark = false) {
       variable: "--inc",
       value: getColorValueFromTheme("--inc", dark),
     },
-    {
-      name: "info-focus",
-      variable: "--inf",
-      value: getColorValueFromTheme("--in", dark,true),
-    },
+
     // success
     {
       name: "success",
@@ -171,11 +147,7 @@ export function getDaisyUiColors(dark = false) {
       variable: "--suc",
       value: getColorValueFromTheme("--suc", dark),
     },
-    {
-      name: "success-focus",
-      variable: "--suf",
-      value: getColorValueFromTheme("--su", dark,true),
-    },
+
     // warning
     {
       name: "warning",
@@ -187,11 +159,7 @@ export function getDaisyUiColors(dark = false) {
       variable: "--wac",
       value: getColorValueFromTheme("--wac", dark),
     },
-    {
-      name: "warning-focus",
-      variable: "--waf",
-      value: getColorValueFromTheme("--wa", dark,true),
-    },
+
     // error
     {
       name: "error",
@@ -203,11 +171,7 @@ export function getDaisyUiColors(dark = false) {
       variable: "--erc",
       value: getColorValueFromTheme("--erc", dark),
     },
-    {
-      name: "error-focus",
-      variable: "--erf",
-      value: getColorValueFromTheme("--er", dark,true),
-    },
+
   ] as const;
 }
 
@@ -225,29 +189,25 @@ export const getTailwindBg = (
       return { bg: "bg-primary", content: "text-primary-content" };
     case "primary-content":
       return { bg: "bg-primary-content", content: "text-primary" };
-    case "primary-focus":
-      return { bg: "bg-primary-focus", content: "text-primary-content" };
+
     // secondary
     case "secondary":
       return { bg: "bg-secondary", content: "text-secondary-content" };
     case "secondary-content":
       return { bg: "bg-secondary-content", content: "text-secondary" };
-    case "secondary-focus":
-      return { bg: "bg-secondary-focus", content: "text-secondary-content" };
+
     // accent
     case "accent":
       return { bg: "bg-accent", content: "text-accent-content" };
     case "accent-content":
       return { bg: "bg-accent-content", content: "text-accent" };
-    case "accent-focus":
-      return { bg: "bg-accent-focus", content: "text-accent-content" };
+
     // neutral
     case "neutral":
       return { bg: "bg-neutral", content: "text-neutral-content" };
     case "neutral-content":
       return { bg: "bg-neutral-content", content: "text-neutral" };
-    case "neutral-focus":
-      return { bg: "bg-neutral-focus", content: "text-neutral-content" };
+
     // base
     case "base-100":
       return { bg: "bg-base-100", content: "text-base-content" };
@@ -262,29 +222,25 @@ export const getTailwindBg = (
       return { bg: "bg-info", content: "text-info-content" };
     case "info-content":
       return { bg: "bg-info-content", content: "text-info" };
-    case "info-focus":
-      return { bg: "bg-info-focus", content: "text-info-content" };
+
     // success
     case "success":
       return { bg: "bg-success", content: "text-success-content" };
     case "success-content":
       return { bg: "bg-success-content", content: "text-success" };
-    case "success-focus":
-      return { bg: "bg-success-focus", content: "text-success-content" };
+
     // warning
     case "warning":
       return { bg: "bg-warning", content: "text-warning-content" };
     case "warning-content":
       return { bg: "bg-warning-content", content: "text-warning" };
-    case "warning-focus":
-      return { bg: "bg-warning-focus", content: "text-warning-content" };
+
     // error
     case "error":
       return { bg: "bg-error", content: "text-error-content" };
     case "error-content":
       return { bg: "bg-error-content", content: "text-error" };
-    case "error-focus":
-      return { bg: "bg-error-focus", content: "text-error-content" };
+
     default:
       return { bg: "bg-base-100", content: "text-base-content" };
   }
@@ -315,11 +271,7 @@ export const daisy_ui_theme ={
       variable: "--pc",
       value:"",
     },
-    "primary-focus":{
-      name: "primary-focus",
-      variable: "--pf",
-      value:"",
-    }
+
   },
   secondary:{
     "secondary":{
@@ -332,11 +284,7 @@ export const daisy_ui_theme ={
       variable: "--sc",
       value:"",
     },
-    "secondary-focus":{
-      name: "secondary-focus",
-      variable: "--sf",
-      value:"",
-    }
+
   },
   accent:{
     "accent":{
@@ -349,11 +297,7 @@ export const daisy_ui_theme ={
       variable: "--ac",
       value:"",
     },
-    "accent-focus":{
-      name: "accent-focus",
-      variable: "--af",
-      value:"",
-    }
+
   },
   neutral:{
     "neutral":{
@@ -366,11 +310,7 @@ export const daisy_ui_theme ={
       variable: "--nc",
       value:"",
     },
-    "neutral-focus":{
-      name: "neutral-focus",
-      variable: "--nf",
-      value:"",
-    }
+
   },
   base:{
     "base-100":{
@@ -405,11 +345,7 @@ export const daisy_ui_theme ={
       variable: "--inc",
       value:"",
     },
-    "info-focus":{
-      name: "info-focus",
-      variable: "--if",
-      value:"",
-    }
+
   },
   success:{
     "success":{
@@ -422,11 +358,7 @@ export const daisy_ui_theme ={
       variable: "--sc",
       value:"",
     },
-    "success-focus":{
-      name: "success-focus",
-      variable: "--sf",
-      value:"",
-    }
+
   },
   warning:{
     "warning":{
@@ -439,11 +371,7 @@ export const daisy_ui_theme ={
       variable: "--wc",
       value:"",
     },
-    "warning-focus":{
-      name: "warning-focus",
-      variable: "--wf",
-      value:"",
-    }
+
   },
   error:{
     "error":{
@@ -456,10 +384,6 @@ export const daisy_ui_theme ={
       variable: "--ec",
       value:"",
     },
-    "error-focus":{
-      name: "error-focus",
-      variable: "--ef",
-      value:"",
-    }
+
   }
 }

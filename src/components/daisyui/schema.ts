@@ -12,11 +12,6 @@ export const daisy_ui_theme_schema = z.object({
       variable: z.literal("--pc"),
       value: z.string(),
     }),
-    "primary-focus": z.object({
-      name: z.literal("primary-focus"),
-      variable: z.literal("--pf"),
-      value: z.string(),
-    }),
   }),
   secondary: z.object({
     secondary: z.object({
@@ -27,11 +22,6 @@ export const daisy_ui_theme_schema = z.object({
     "secondary-content": z.object({
       name: z.literal("secondary-content"),
       variable: z.literal("--sc"),
-      value: z.string(),
-    }),
-    "secondary-focus": z.object({
-      name: z.literal("secondary-focus"),
-      variable: z.literal("--sf"),
       value: z.string(),
     }),
   }),
@@ -46,11 +36,7 @@ export const daisy_ui_theme_schema = z.object({
       variable: z.literal("--ac"),
       value: z.string(),
     }),
-    "accent-focus": z.object({
-      name: z.literal("accent-focus"),
-      variable: z.literal("--af"),
-      value: z.string(),
-    }),
+
   }),
   neutral: z.object({
     neutral: z.object({
@@ -63,11 +49,7 @@ export const daisy_ui_theme_schema = z.object({
       variable: z.literal("--nc"),
       value: z.string(),
     }),
-    "neutral-focus": z.object({
-      name: z.literal("neutral-focus"),
-      variable: z.literal("--nf"),
-      value: z.string(),
-    }),
+
   }),
   base: z.object({
     "base-100": z.object({
@@ -102,11 +84,7 @@ export const daisy_ui_theme_schema = z.object({
       variable: z.literal("--inc"),
       value: z.string(),
     }),
-    "info-focus": z.object({
-      name: z.literal("info-focus"),
-      variable: z.literal("--if"),
-      value: z.string(),
-    }),
+
   }),
   success: z.object({
     success: z.object({
@@ -119,11 +97,7 @@ export const daisy_ui_theme_schema = z.object({
       variable: z.literal("--sc"),
       value: z.string(),
     }),
-    "success-focus": z.object({
-      name: z.literal("success-focus"),
-      variable: z.literal("--sf"),
-      value: z.string(),
-    }),
+
   }),
   warning: z.object({
     warning: z.object({
@@ -136,11 +110,7 @@ export const daisy_ui_theme_schema = z.object({
       variable: z.literal("--wc"),
       value: z.string(),
     }),
-    "warning-focus": z.object({
-      name: z.literal("warning-focus"),
-      variable: z.literal("--wf"),
-      value: z.string(),
-    }),
+
   }),
   error: z.object({
     error: z.object({
@@ -153,10 +123,6 @@ export const daisy_ui_theme_schema = z.object({
       variable: z.literal("--ec"),
       value: z.string(),
     }),
-    "error-focus": z.object({
-      name: z.literal("error-focus"),
-      variable: z.literal("--ef"),
-      value: z.string(),
-    }),
+
   }),
 });
