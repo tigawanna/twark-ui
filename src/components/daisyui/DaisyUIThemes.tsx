@@ -5,6 +5,8 @@ import {
   getTailwindBg,
 } from "./daisyui-css-variables";
 import { twMerge } from "tailwind-merge";
+import { ThemeGroupCards } from "@/routes/theme/-Components/ThemeGroup";
+
 
 export function DaisyUIThemes() {
   const [colors, setColors] = useState(getDaisyUiColors());
@@ -25,7 +27,7 @@ export function DaisyUIThemes() {
   type GroupItem = (typeof colors)[number];
   type GroupedThems = Record<GroupItemKey, GroupItem[]>;
 
-  const groupedThemss = colors.reduce((acc: GroupedThems, curr) => {
+  const groupedThemes = colors.reduce((acc: GroupedThems, curr) => {
     const [key] = curr.name.split("-");
 
     if (curr.name.includes(key)) {
@@ -36,13 +38,28 @@ export function DaisyUIThemes() {
     return acc;
   }, {} as GroupedThems);
 
-  const groupedThemes = Object.entries(groupedThemss);
-
+  const groupedThemesArray = Object.entries(groupedThemes);
+  // console.log("==========  grouped them object =================",groupedThemes);
+  // console.log("==========  grouped them object primary =================",groupedThemes.primary);
   return (
     <div className="w-full h-full flex flex-col items-center justify-center">
       <h1 className="text-xl font-bold ">Daisy UI theme</h1>
+      <ThemeGroupCards<"primary">
+        group={{
+          primary: {
+            name: "primary",
+            value: "uw",
+            variable: "uwu",
+          },
+          "primary-content": {
+            name: "primary-content",
+            value: "uw",
+            variable: "uwu",
+          },
+        }}
+      />
       <ul className="w-full h-full flex flex-wrap items-center justify-center p-5 gap-5 divide-y">
-        {groupedThemes.map(([key, value]) => {
+        {groupedThemesArray.map(([key, value]) => {
           return (
             <li
               key={key}
@@ -53,8 +70,7 @@ export function DaisyUIThemes() {
                   const value = theme.value;
                   const { bg, content } = getTailwindBg(theme.name);
                   return (
-                    <li
-                      key={theme.variable}
+                    <li                      key={theme.variable}
                       className="w-full h-24 flex flex-col justify-center rounded-lg hover:scale-110">
                       <div
                         key={value}

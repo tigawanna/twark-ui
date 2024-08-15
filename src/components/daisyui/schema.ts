@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const daisy_ui_theme_schema = z.object({
+export const daisyUIThemeSchema = z.object({
   primary: z.object({
     primary: z.object({
       name: z.literal("primary"),

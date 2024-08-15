@@ -259,6 +259,9 @@ export const base_daisyui_theme_names = [
 ] as const;
 
 
+export type BaseDaisyUiThemeKeys = typeof base_daisyui_theme_names[number];
+
+
 export const daisy_ui_theme ={
   primary:{
     "primary":{
