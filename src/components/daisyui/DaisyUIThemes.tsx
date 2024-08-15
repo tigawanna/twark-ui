@@ -6,7 +6,7 @@ import {
 } from "./daisyui-css-variables";
 import { twMerge } from "tailwind-merge";
 
-export function CssvariablesView() {
+export function DaisyUIThemes() {
   const [colors, setColors] = useState(getDaisyUiColors());
   useEffect(() => {
     const mutationObserver = new MutationObserver(() => {

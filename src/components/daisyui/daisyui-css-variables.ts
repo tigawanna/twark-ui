@@ -43,7 +43,7 @@ export const getColorValueFromTheme = (
   }
   if (darkenColor) {
     // @ts-expect-error typescript is being dumb
-    result = interpolate([`oklch(${colorObjToString(result)})`, "black"], "oklch")(0.07);
+    result = interpolate([`oklch(${colorObjToString(result)})`, "white"], "oklch")(0.93);
   }
   // @ts-expect-error typescript is being dumb
   return formatHex(`oklch(${colorObjToString(result)})`);
@@ -301,3 +301,165 @@ export const base_daisyui_theme_names = [
   "warning",
   "error",
 ] as const;
+
+
+export const daisy_ui_theme ={
+  primary:{
+    "primary":{
+      name: "primary",
+      variable: "--p",
+      value:"",
+    },
+    "primary-content":{
+      name: "primary-content",
+      variable: "--pc",
+      value:"",
+    },
+    "primary-focus":{
+      name: "primary-focus",
+      variable: "--pf",
+      value:"",
+    }
+  },
+  secondary:{
+    "secondary":{
+      name: "secondary",
+      variable: "--s",
+      value:"",
+    },
+    "secondary-content":{
+      name: "secondary-content",
+      variable: "--sc",
+      value:"",
+    },
+    "secondary-focus":{
+      name: "secondary-focus",
+      variable: "--sf",
+      value:"",
+    }
+  },
+  accent:{
+    "accent":{
+      name: "accent",
+      variable: "--a",
+      value:"",
+    },
+    "accent-content":{
+      name: "accent-content",
+      variable: "--ac",
+      value:"",
+    },
+    "accent-focus":{
+      name: "accent-focus",
+      variable: "--af",
+      value:"",
+    }
+  },
+  neutral:{
+    "neutral":{
+      name: "neutral",
+      variable: "--n",
+      value:"",
+    },
+    "neutral-content":{
+      name: "neutral-content",
+      variable: "--nc",
+      value:"",
+    },
+    "neutral-focus":{
+      name: "neutral-focus",
+      variable: "--nf",
+      value:"",
+    }
+  },
+  base:{
+    "base-100":{
+      name: "base-100",
+      variable: "--b1",
+      value:"", 
+  },
+    "base-200":{
+      name: "base-200",
+      variable: "--b2",
+      value:"",
+    },
+    "base-300":{
+      name: "base-300",
+      variable: "--b3",
+      value:"",
+    },
+    "base-content":{
+      name: "base-content",
+      variable: "--bc",
+      value:"",
+    }
+  },
+  info:{
+    "info":{
+      name: "info",
+      variable: "--i",
+      value:"",
+    },
+    "info-content":{
+      name: "info-content",
+      variable: "--inc",
+      value:"",
+    },
+    "info-focus":{
+      name: "info-focus",
+      variable: "--if",
+      value:"",
+    }
+  },
+  success:{
+    "success":{
+      name: "success",
+      variable: "--s",
+      value:"",  
+    },
+    "success-content":{
+      name: "success-content",
+      variable: "--sc",
+      value:"",
+    },
+    "success-focus":{
+      name: "success-focus",
+      variable: "--sf",
+      value:"",
+    }
+  },
+  warning:{
+    "warning":{
+      name: "warning",
+      variable: "--w",
+      value:"",
+    },
+    "warning-content":{
+      name: "warning-content",
+      variable: "--wc",
+      value:"",
+    },
+    "warning-focus":{
+      name: "warning-focus",
+      variable: "--wf",
+      value:"",
+    }
+  },
+  error:{
+    "error":{
+      name: "error",
+      variable: "--e",
+      value:"",
+    },
+    "error-content":{
+      name: "error-content",
+      variable: "--ec",
+      value:"",
+    },
+    "error-focus":{
+      name: "error-focus",
+      variable: "--ef",
+      value:"",
+    }
+  }
+}
