@@ -54,7 +54,7 @@ export const getColorValueFromThemeVariable = (variable: string) => {
     `oklch(${changeColorValuesToObject(colorValues).l} ${
       changeColorValuesToObject(colorValues).c
     } ${changeColorValuesToObject(colorValues).h})`
-  );
+  )
 };
 
 export function getDaisyUiColors(dark = false) {

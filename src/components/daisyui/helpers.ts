@@ -1,4 +1,4 @@
-import { formatHex, toGamut, interpolate, wcagContrast, Color, Oklch } from "culori";
+import { formatHex,  interpolate, wcagContrast, type Color, type Oklch } from "culori";
 
 const browser = typeof window !== "undefined";
 const isDark = (color: Color | string) => {
