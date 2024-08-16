@@ -56,6 +56,10 @@ export const getColorValueFromThemeVariable = (variable: string) => {
     } ${changeColorValuesToObject(colorValues).h})`
   )
 };
+export const getThemeVariable = (variable: string) => {
+  const colorValues = getComputedStyle(document.documentElement).getPropertyValue(variable);
+  return colorValues;
+};
 
 export function getDaisyUiColors(dark = false) {
   return [

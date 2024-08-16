@@ -1,3 +1,5 @@
+import { tabsAnatomy } from "@ark-ui/react/tabs";
+import { BoxIcon } from "lucide-react";
 import { z } from "zod";
 
 export const daisyUIThemeSchema = z.object({
@@ -157,8 +159,94 @@ export const daisyUIThemeSchema = z.object({
       }),
     })
     .optional(),
+  curves: z.object({
+    rounded_box: z
+      .object({
+        name: z.literal("rounded-box"),
+        variable: z.literal("--rounded-box"),
+        value: z.string(),
+        locked: z.boolean().optional(),
+      })
+      .optional(),
+    rounded_btn: z
+      .object({
+        name: z.literal("rounded-btn"),
+        variable: z.literal("--rounded-btn"),
+        value: z.string(),
+        locked: z.boolean().optional(),
+      })
+      .optional(),
+    rounded_badge: z
+      .object({
+        name: z.literal("rounded-badge"),
+        variable: z.literal("--rounded-badge"),
+        value: z.string(),
+        locked: z.boolean().optional(),
+      })
+      .optional(),
+
+    animation_btn: z
+      .object({
+        name: z.literal("animation-btn"),
+        variable: z.literal("--animation-btn"),
+        value: z.string(),
+        locked: z.boolean().optional(),
+      })
+      .optional(),
+    animation_input: z
+      .object({
+        name: z.literal("animation-input"),
+        variable: z.literal("--animation-input"),
+        value: z.string(),
+        locked: z.boolean().optional(),
+      })
+      .optional(),
+    btn_focus_scale: z
+      .object({
+        name: z.literal("btn-focus-scale"),
+        variable: z.literal("--btn-focus-scale"),
+        value: z.string(),
+        locked: z.boolean().optional(),
+      })
+      .optional(),
+    border_btn: z
+      .object({
+        name: z.literal("border-btn"),
+        variable: z.literal("--border-btn"),
+        value: z.string(),
+        locked: z.boolean().optional(),
+      })
+      .optional(),
+    tab_border: z
+      .object({
+        name: z.literal("tab-border"),
+        variable: z.literal("--tab-border"),
+        value: z.string(),
+        locked: z.boolean().optional(),
+      })
+      .optional(),
+    tab_radius: z
+      .object({
+        name: z.literal("tab-radius"),
+        variable: z.literal("--tab-radius"),
+        value: z.string(),
+        locked: z.boolean().optional(),
+      })
+      .optional(),
+  }),
 });
 
+// "--rounded-box": "1rem",          // border radius rounded-box utility class, used in card and other large boxes
+// "--rounded-btn": "0.5rem",        // border radius rounded-btn utility class, used in buttons and similar element
+// "--rounded-badge": "1.9rem",      // border radius rounded-badge utility class, used in badges and similar
+
+// "--animation-btn": "0.25s",       // duration of animation when you click on button
+// "--animation-input": "0.2s",      // duration of animation for inputs like checkbox, toggle, radio, etc
+
+// "--btn-focus-scale": "0.95",      // scale transform of button when you focus on it
+// "--border-btn": "1px",            // border width of buttons
+
+// "--tab-border": "1px",            // border width of tabs
+// "--tab-radius": "0.5rem",         // border radius of tabs
+
 export type ThemeSearchParmsTypes = z.infer<typeof daisyUIThemeSchema>;
-
-

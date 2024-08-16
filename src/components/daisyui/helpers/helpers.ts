@@ -164,56 +164,45 @@ const colors = [
   },
 ] as const;
 
-function darken(name: string, variable: string, source: string, percentage: number = 0.2) {
+function darken(name: string, variable: string, source: string, percentage = 0.2) {
   const sourceColor = colors.find((item) => item.name === source);
   return generateDarkenColorFrom(sourceColor?.value ?? "black", percentage);
 }
-function contrastMaker(name: string, variable: string, source: string, percentage: number = 0.8) {
+function contrastMaker(name: string, variable: string, source: string, percentage = 0.8) {
   const sourceColor = colors.find((item) => item.name === source);
   return generateForegroundColorFrom(sourceColor?.value ?? "black", percentage);
 }
 
-function generateOptionalColors(): void {
-  // @ts-expect-error
-  colors[9]?.value = darken("base-200", "--b2", "base-100", 0.1);
-  // @ts-expect-error
-  colors[10]?.value = darken("base-300", "--b3", "base-100", 0.2);
-  // @ts-expect-error
-  colors[11]?.value = contrastMaker("base-content", "--bc", "base-100");
+// function generateOptionalColors(): void {
+//   // @ts-expect-error
+//   colors[9]?.value = darken("base-200", "--b2", "base-100", 0.1);
+//   // @ts-expect-error
+//   colors[10]?.value = darken("base-300", "--b3", "base-100", 0.2);
+//   // @ts-expect-error
+//   colors[11]?.value = contrastMaker("base-content", "--bc", "base-100");
 
-  // @ts-expect-error
-  colors[1]?.value = contrastMaker("primary-content", "--pc", "primary");
-  // @ts-expect-error
-  colors[3]?.value = contrastMaker("secondary-content", "--sc", "secondary");
-  // @ts-expect-error
-  colors[5]?.value = contrastMaker("accent-content", "--ac", "accent");
-  // @ts-expect-error
-  colors[7]?.value = contrastMaker("neutral-content", "--nc", "neutral");
-  // @ts-expect-error
-  colors[13]?.value = contrastMaker("info-content", "--inc", "info");
-  // @ts-expect-error
-  colors[15]?.value = contrastMaker("success-content", "--suc", "success");
-  // @ts-expect-error
-  colors[17]?.value = contrastMaker("warning-content", "--wac", "warning");
-  // @ts-expect-error
-  colors[19]?.value = contrastMaker("error-content", "--erc", "error");
-}
+//   // @ts-expect-error
+//   colors[1]?.value = contrastMaker("primary-content", "--pc", "primary");
+//   // @ts-expect-error
+//   colors[3]?.value = contrastMaker("secondary-content", "--sc", "secondary");
+//   // @ts-expect-error
+//   colors[5]?.value = contrastMaker("accent-content", "--ac", "accent");
+//   // @ts-expect-error
+//   colors[7]?.value = contrastMaker("neutral-content", "--nc", "neutral");
+//   // @ts-expect-error
+//   colors[13]?.value = contrastMaker("info-content", "--inc", "info");
+//   // @ts-expect-error
+//   colors[15]?.value = contrastMaker("success-content", "--suc", "success");
+//   // @ts-expect-error
+//   colors[17]?.value = contrastMaker("warning-content", "--wac", "warning");
+//   // @ts-expect-error
+//   colors[19]?.value = contrastMaker("error-content", "--erc", "error");
+// }
 
 
-function handlePastedText(event, color) {
-  const text = event.clipboardData.getData("Text");
-  color.value = text;
-  event.preventDefault();
-}
 
-function resetColors() {
-  if (browser && localStorage.getItem("theme-generator-colors")) {
-    localStorage.removeItem("theme-generator-colors");
-    colors = JSON.parse(localStorage?.getItem("theme-generator-default-colors")??"[]");
-    generateOptionalColors();
-    generateColors();
-  }
-}
+
+
 
 function randomBetween(min: number, max: number) {
   const result = Math.random() * (max - min) + min;
@@ -263,6 +252,6 @@ function randomize() {
   );
   //error
   // })
-  generateOptionalColors();
+  // generateOptionalColors();
 //   generateColors();
 }
