@@ -6,6 +6,7 @@ import { themeChange } from "theme-change";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { daisyUIThemeSchema } from "@/components/daisyui/helpers/daisy-ui-schema";
 import { defaultThemes } from "@/components/daisyui/helpers/use-default-theme";
+import { TailwindIndicator } from "@/components/misc/tailwind-indicator";
 
 export const Route = createRootRouteWithContext<RouterCntextTypes>()({
   component: RootComponent,
@@ -41,6 +42,7 @@ export function RootComponent() {
     <div className="w-full h-full flex flex-col items-center justify-center">
       <MainNavBar />
       <Outlet />
+      <TailwindIndicator/>
       <TanStackRouterDevtools position="bottom-left" />
     </div>
   );

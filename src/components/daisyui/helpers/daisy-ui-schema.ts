@@ -231,7 +231,7 @@ export const daisyUIThemeSchema = z.object({
         locked: z.boolean().optional(),
       })
       .optional(),
-  }),
+  }).optional(),
 });
 
 // "--rounded-box": "1rem",          // border radius rounded-box utility class, used in card and other large boxes

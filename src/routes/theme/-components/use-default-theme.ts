@@ -1,21 +1,24 @@
-
+import { defaultThemes } from "@/components/daisyui/helpers/use-default-theme";
+import { useSearch } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { defaultThemes } from "./helpers";
 
 export function useDefaultTheme() {
-    const [themes, setThems] = useState(defaultThemes({}));
-      useEffect(() => {
-        const mutationObserver = new MutationObserver(() => {
-          setThems(defaultThemes({}));
-        });
-        mutationObserver.observe(document.documentElement, {
-          attributes: true,
-          attributeFilter: ["data-theme"],
-        });
-        return () => {
-          mutationObserver.disconnect();
-        };
-      }, []);
+  const themeSearchParams = useSearch({
+    from: "/",
+  });
+  const [themes, setThems] = useState(defaultThemes({ theme: themeSearchParams }));
+  // useEffect(() => {
+  //   const mutationObserver = new MutationObserver(() => {
+  //     setThems(defaultThemes({}));
+  //   });
+  //   mutationObserver.observe(document.documentElement, {
+  //     attributes: true,
+  //     attributeFilter: ["data-theme"],
+  //   });
+  //   return () => {
+  //     mutationObserver.disconnect();
+  //   };
+  // }, []);
 
-      return themes;
+  return themes;
 }
