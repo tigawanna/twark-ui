@@ -1,5 +1,3 @@
-import { tabsAnatomy } from "@ark-ui/react/tabs";
-import { BoxIcon } from "lucide-react";
 import { z } from "zod";
 
 export const daisyUIThemeSchema = z.object({

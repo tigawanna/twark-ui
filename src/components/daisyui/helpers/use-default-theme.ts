@@ -285,15 +285,15 @@ export function defaultThemes({ theme }: { theme?: ThemeSearchParmsTypes }): The
 export function useUpdateTheme() {
   const navigate = useNavigate();
   const searchParams = useSearch({
-    from: "/theme/",
+    from: "/",
   });
   const updateTheme = (newTheme: Record<string, GenericThemeState>) => {
     navigate({
-      to: "/theme",
       search: {
         ...searchParams,
         ...newTheme,
       },
     });
   };
+  return { updateTheme };
 }
