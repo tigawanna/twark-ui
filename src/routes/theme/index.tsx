@@ -1,14 +1,13 @@
-
 import { createFileRoute } from '@tanstack/react-router'
-import { daisyUIThemeSchema } from './-components/helpers';
 import { DaisyUiThemes } from './-components/DaisyUiThemes';
+import { daisyUIThemeSchema } from '@/components/daisyui/helpers/daisy-ui-schema';
 
-export const Route = createFileRoute('/theme/')({
+export const Route = createFileRoute("/theme/")({
   component: ThemePage,
-  validateSearch(input){
-    return daisyUIThemeSchema.parse(input)
-  },
-})
+  // validateSearch(input) {
+  //   return daisyUIThemeSchema.parse(input);
+  // },
+});
 
 
 export function ThemePage(){

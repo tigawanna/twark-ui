@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 import type {} from "@redux-devtools/extension"; // required for devtools typing
-import { type daisyUiColors, getDaisyUiColors } from "@/components/daisyui/daisyui-css-variables";
+import { type daisyUiColors, getDaisyUiColors } from "@/components/daisyui/helpers/daisy-ui-css-variables";
 
 
 

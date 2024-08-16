@@ -3,7 +3,7 @@ import {
   type base_daisyui_theme_names,
   getDaisyUiColors,
   getTailwindBg,
-} from "./daisyui-css-variables";
+} from "./helpers/daisy-ui-css-variables";
 import { twMerge } from "tailwind-merge";
 
 

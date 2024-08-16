@@ -3,20 +3,27 @@ import type { RouterCntextTypes } from "@/main";
 import { MainNavBar } from "@/components/navbar/MainNavBar";
 import { useEffect } from "react";
 import { themeChange } from "theme-change";
-import { defaultThemes } from "./theme/-components/helpers";
+import { TanStackRouterDevtools } from "@tanstack/router-devtools";
+import { daisyUIThemeSchema } from "@/components/daisyui/helpers/daisy-ui-schema";
+import { defaultThemes } from "@/components/daisyui/helpers/use-default-theme";
 
 export const Route = createRootRouteWithContext<RouterCntextTypes>()({
   component: RootComponent,
+  validateSearch(input) {
+    return daisyUIThemeSchema.parse(input);
+  },
 });
 
 export function RootComponent() {
   const navigate = useNavigate({
     from:"/"
   })
+  
   useEffect(() => {
     themeChange(false);
     // 👆 false parameter is required for react project
   }, []);
+  
   useEffect(() => {
     const mutationObserver = new MutationObserver(() => {
       navigate({search: defaultThemes({}) });
@@ -29,10 +36,12 @@ export function RootComponent() {
       mutationObserver.disconnect();
     };
   }, []);
+
   return (
     <div className="w-full h-full flex flex-col items-center justify-center">
       <MainNavBar />
       <Outlet />
+      <TanStackRouterDevtools position="bottom-left" />
     </div>
   );
 }

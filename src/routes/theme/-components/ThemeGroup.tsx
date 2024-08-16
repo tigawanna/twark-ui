@@ -1,6 +1,6 @@
-import {getTailwindBg} from "@/components/daisyui/daisyui-css-variables";
+import {getTailwindBg} from "@/components/daisyui/helpers/daisy-ui-css-variables";
 import { twMerge } from "tailwind-merge";
-import type { BaseDaisyUiThemeKeysWithoutBase, ColorGroupProps } from "./types";
+import type { BaseDaisyUiThemeKeysWithoutBase, ColorGroupProps } from "../../../components/daisyui/helpers/types";
 
 
 

@@ -1,4 +1,4 @@
-import type { BaseDaisyUiThemeKeys } from "@/components/daisyui/daisyui-css-variables";
+import type { BaseDaisyUiThemeKeys } from "@/components/daisyui/helpers/daisy-ui-css-variables";
 
 export type BaseDaisyUiThemeKeysWithoutBase = Exclude<BaseDaisyUiThemeKeys, "base">;
 export type BGColorRecord<T extends BaseDaisyUiThemeKeysWithoutBase> = Record<
