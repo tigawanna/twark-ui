@@ -11,10 +11,17 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as UwuImport } from './routes/uwu'
 import { Route as IndexImport } from './routes/index'
 import { Route as ThemeIndexImport } from './routes/theme/index'
+import { Route as EditorIndexImport } from './routes/editor/index'
 
 // Create/Update Routes
+
+const UwuRoute = UwuImport.update({
+  path: '/uwu',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const IndexRoute = IndexImport.update({
   path: '/',
@@ -23,6 +30,11 @@ const IndexRoute = IndexImport.update({
 
 const ThemeIndexRoute = ThemeIndexImport.update({
   path: '/theme/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const EditorIndexRoute = EditorIndexImport.update({
+  path: '/editor/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -37,6 +49,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/uwu': {
+      id: '/uwu'
+      path: '/uwu'
+      fullPath: '/uwu'
+      preLoaderRoute: typeof UwuImport
+      parentRoute: typeof rootRoute
+    }
+    '/editor/': {
+      id: '/editor/'
+      path: '/editor'
+      fullPath: '/editor'
+      preLoaderRoute: typeof EditorIndexImport
+      parentRoute: typeof rootRoute
+    }
     '/theme/': {
       id: '/theme/'
       path: '/theme'
@@ -49,7 +75,12 @@ declare module '@tanstack/react-router' {
 
 // Create and export the route tree
 
-export const routeTree = rootRoute.addChildren({ IndexRoute, ThemeIndexRoute })
+export const routeTree = rootRoute.addChildren({
+  IndexRoute,
+  UwuRoute,
+  EditorIndexRoute,
+  ThemeIndexRoute,
+})
 
 /* prettier-ignore-end */
 
@@ -60,11 +91,19 @@ export const routeTree = rootRoute.addChildren({ IndexRoute, ThemeIndexRoute })
       "filePath": "__root.tsx",
       "children": [
         "/",
+        "/uwu",
+        "/editor/",
         "/theme/"
       ]
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/uwu": {
+      "filePath": "uwu.tsx"
+    },
+    "/editor/": {
+      "filePath": "editor/index.tsx"
     },
     "/theme/": {
       "filePath": "theme/index.tsx"

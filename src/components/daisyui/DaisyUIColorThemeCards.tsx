@@ -107,43 +107,67 @@ type ThemeCurves = ThemeSearchParmsTypes["curves"];
 type ThemeCurveKeys = ThemeCurves extends undefined ? never : keyof ThemeCurves;
 
 interface DaisyUIBaseCurvesThemeCardProps {
-  theme_group:{
-    [key in ThemeCurveKeys]: ThemeCurves[key]
-  }
+  theme_group: {
+    [key in ThemeCurveKeys]: ThemeCurves[key];
+  };
 }
 export function DaisyUIABaseCurvesThemeCard({ theme_group }: DaisyUIBaseCurvesThemeCardProps) {
   const curves = Object.entries<DaisyUIBaseCurvesThemeCardProps["theme_group"]>(theme_group);
-  const navigate  = useNavigate()
+  const navigate = useNavigate();
+  function handleVariableChange({
+    theme_key,
+    value_key,
+    css_varaiable_key,
+    value,
+    theme,
+  }: {
+    theme_key: string;
+    css_varaiable_key: string;
+    value_key: string;
+    value: string;
+    theme: GenericThemeState;
+  }) {
+    const new_curves = {
+      ...theme_group,
+      [theme_key]: {
+        ...theme,
+        [value_key]: value,
+      },
+    };
+    document.documentElement.style.setProperty(css_varaiable_key, value);
+    navigate({
+      search: {
+        curves: new_curves,
+      },
+    });
+  }
+
   return (
     <div className="w-full   flex flex-col items-center justify-center gap-1">
       <h1 className="text-xl font-bold">curves</h1>
       <ul className="w-full flex flex-wrap items-center justify-center gap-2 ">
         {curves.map(([key, theme]) => {
-          const row = theme as  GenericThemeState
-         const [input,setInput]=useState(row.value)
-          const [,startTransition] = useTransition()
+          const row = theme as GenericThemeState;
+          const [input, setInput] = useState(row.value);
+          const [, startTransition] = useTransition();
+
           return (
             <div
               key={key + row.variable}
               className="w-full sm:w-1/3 md:w-1/4 lg:w-1/5 h-12   flex flex-col justify-center rounded-lg">
               <h2 className="text-sm font-bold">{key}</h2>
               <input
-               key={input}
                 className="w-full input input-sm flex flex-col justify-center rounded-lg"
                 value={input}
                 onChange={(e) => {
                   setInput(e.target.value);
                   startTransition(() => {
-                    navigate({
-                      search: {
-                        curves: {
-                          ...theme_group,
-                          [row.name]: {
-                            ...theme,
-                            [key]: e.target.value,
-                          },
-                        },
-                      },
+                    handleVariableChange({
+                      css_varaiable_key: row.variable,
+                      theme_key: key,
+                      value_key: "value",
+                      value: e.target.value,
+                      theme: row,
                     });
                   });
                 }}

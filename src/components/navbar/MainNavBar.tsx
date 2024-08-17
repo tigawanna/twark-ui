@@ -15,6 +15,9 @@ return (
       <Link to="/" className="hover-:text-blue-500">
         <h1 className="">build</h1>
       </Link>
+      <Link to="/editor" className="badge hover-:text-blue-500">
+        <h1 className="">edito</h1>
+      </Link>
     </div>
     <DaisyuiThemesSelect />
   </div>

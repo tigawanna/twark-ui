@@ -1,52 +1,25 @@
+// @ts-check
 /** @type {import('tailwindcss').Config} */
 const { parkwindPlugin } = require("@park-ui/tailwind-plugin");
+const { defaultDaisyUiThemes } = require("./src/components/daisyui/them-defaults.ts");
+const {daisyUIColors} = require("./src/components/daisyui/hsl-config.ts");
+
 export default {
+  mode: "jit",
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: daisyUIColors,
+    },
   },
   plugins: [
     require("daisyui"),
     require("tailwindcss-animate"),
-    require("daisify-shadcn")
-    ,
+    require("daisify-shadcn"),
     parkwindPlugin,
   ],
   daisyui: {
-    themes: [
-      "light",
-      "dark",
-      "cupcake",
-      "bumblebee",
-      "emerald",
-      "corporate",
-      "synthwave",
-      "retro",
-      "cyberpunk",
-      "valentine",
-      "halloween",
-      "garden",
-      "forest",
-      "aqua",
-      "lofi",
-      "pastel",
-      "fantasy",
-      "wireframe",
-      "black",
-      "luxury",
-      "dracula",
-      "cmyk",
-      "autumn",
-      "business",
-      "acid",
-      "lemonade",
-      "night",
-      "coffee",
-      "winter",
-      "dim",
-      "nord",
-      "sunset",
-    ],
+    themes: [defaultDaisyUiThemes],
   },
 };
 

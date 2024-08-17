@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 export const daisyUIThemeSchema = z.object({
+  theme: z.string().optional(),
   primary: z
     .object({
       primary: z.object({
